@@ -64,8 +64,8 @@ pi_version = detect_model()
 print(pi_version)
 if pi_version[13] == '5':
 	print("Pi 5 detected")
-	os.system("sudo insmod microchip_t1s_pi5.ko")
-	os.system("sudo insmod lan865x_t1s_pi5.ko")
+	os.system("sudo insmod microchip_t1s.ko")
+	os.system("sudo insmod lan865x_t1s.ko")
 	import gpiod
 	chip = gpiod.Chip('gpiochip4')
 	led_line = chip.get_line(led2)
@@ -74,8 +74,8 @@ if pi_version[13] == '5':
 	
 elif pi_version[13] == '4':
 	print("Pi 4 detected")
-	os.system("sudo insmod microchip_t1s_pi4.ko")
-	os.system("sudo insmod lan865x_t1s_pi4.ko")
+	os.system("sudo insmod microchip_t1s.ko")
+	os.system("sudo insmod lan865x_t1s.ko")
 	import RPi.GPIO as GPIO
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(led2,GPIO.OUT)
